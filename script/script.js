@@ -52,7 +52,7 @@ function colours() {
     for(var i = 0; i < squares.length; i++) {
       squares[i].style.backgroundColor = colour[i];   
     }
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "steelblue";
   })
   
   colourDisplay.textContent = pickedColour;
