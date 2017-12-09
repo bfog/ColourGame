@@ -49,6 +49,9 @@ function colours() {
     pickedColour = pickColour(colour);
     colourDisplay.textContent = pickedColour;
     
+    messageDisplay.textContent = "";
+    this.textContent = "New Colours";
+    
     for(var i = 0; i < squares.length; i++) {
       squares[i].style.backgroundColor = colour[i];   
     }
