@@ -1,11 +1,24 @@
 function colours() {
   var colour = generateRandomColours(6);
   
+  var resetButton = document.getElementById("reset");
   var squares = document.querySelectorAll(".square");
   var pickedColour = pickColour(colour);
   var colourDisplay = document.getElementById("colourDisplay");
   var messageDisplay = document.querySelector("#message");
   var h1 = document.querySelector("h1");
+  
+  resetButton.addEventListener("click", function() {
+    colour = generateRandomColours(6);
+    pickedColour = pickColour(colour);
+    colourDisplay.textContent = pickedColour;
+    
+    for(var i = 0; i < squares.length; i++) {
+      squares[i].style.backgroundColor = colour[i];
+      console.log(squares[i].style.backgroundColour, colour[i]);
+    }
+    h1.style.backgroundColor = "#232323";
+  })
   
   colourDisplay.textContent = pickedColour;
   
@@ -18,6 +31,7 @@ function colours() {
       
       if(clickedColour === pickedColour) {
         messageDisplay.textContent = "Correct!";
+        resetButton.textContent = "Play Again?";
         changeColours(clickedColour, squares);
         h1.style.backgroundColor = clickedColour;
       }
@@ -28,6 +42,7 @@ function colours() {
     })
   }
 }
+
 
 function generateRandomColours(num) {
   var arr = [];
